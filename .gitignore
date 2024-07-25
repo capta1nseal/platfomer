@@ -1,0 +1,9 @@
+# Project-generated folders, build and such:
+
+dep/
+obj/
+bin/
+
+# Other stuff, IDEs etc:
+
+.vscode/
