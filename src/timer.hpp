@@ -12,6 +12,7 @@ class Timer
 public:
     Timer();
     ~Timer();
+
 private:
 
 };
