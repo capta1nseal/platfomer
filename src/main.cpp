@@ -1,6 +1,12 @@
 #include <iostream>
 
+#include "application.hpp"
+
 int main()
 {
-    std::cout << "Hello World, time to make a 2D platformer\n(again kinda... :D)\n";
+    auto application = Application();
+
+    application.run();
+
+    return 0;
 }
