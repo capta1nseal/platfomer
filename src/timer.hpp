@@ -15,6 +15,7 @@ using TimePointDouble = std::chrono::time_point<SteadyClock, DurationDouble>;
 /*
 A class encapsulating timing code for loops.
 It aims to deliver stable and precise tick times and delta times.
+Some tuning is done to correct this_thread::sleep inaccuracy.
 Timing will be done in double precision, I see no need to use only float here.
 */
 class Timer
@@ -26,22 +27,17 @@ public:
     /*
     To be run once every repetition.
     Attempts to achieve exactly tickRate repetitions in one second.
-    Returns the time passed in seconds (double precision, should be good down to a microsecond).
+    Returns the time passed since last call in seconds (double precision, should be good down to a microsecond).
     If the code executed in the loop regularly exceeds the target tick time, target tick rates cannot be achieved.
     */
     DurationDouble tick(double tickRate);
 
 private:
-    SteadyClock _clock;
-    TimePointDouble _lastTick;
+    SteadyClock clock_;
+    TimePointDouble lastTick_;
 
-    std::vector<DurationDouble> _history;
-    // Stores the errors for the last _historyLength ticks. Used as a queue indexed by _historyLocation.
-    unsigned int _historyLength;
-    // Location within _history to treat as "head" of history queue.
-    unsigned int _historyLocation;
-    // Double-precision time in milliseconds used to minimise errors in tick length.
-    DurationDouble _tuningFactor;
+    DurationDouble tuningFactor_;
+    double tuningResponsiveness_;
 
 };
 
