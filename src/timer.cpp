@@ -5,8 +5,6 @@
 #include <thread>
 #include <vector>
 #include <numeric>
-// TODO remove this
-#include <iostream>
 
 
 Timer::Timer()
