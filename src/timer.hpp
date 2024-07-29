@@ -4,6 +4,7 @@
 
 #include <chrono>
 #include <thread>
+#include <vector>
 
 
 using SteadyClock = std::chrono::steady_clock;
@@ -33,6 +34,14 @@ public:
 private:
     SteadyClock _clock;
     TimePointDouble _lastTick;
+
+    std::vector<DurationDouble> _history;
+    // Stores the errors for the last _historyLength ticks. Used as a queue indexed by _historyLocation.
+    unsigned int _historyLength;
+    // Location within _history to treat as "head" of history queue.
+    unsigned int _historyLocation;
+    // Double-precision time in milliseconds used to minimise errors in tick length.
+    DurationDouble _tuningFactor;
 
 };
 

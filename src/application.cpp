@@ -2,6 +2,7 @@
 
 
 #include <iostream>
+#include <iomanip>
 
 #include "timer.hpp"
 
@@ -10,6 +11,7 @@ Application::Application()
 {
     _running = false;
     _tickCount = 0;
+    _tickRate = 200.0;
 }
 Application::~Application()
 {
@@ -22,7 +24,8 @@ void Application::run()
     {
         DurationDouble tickDuration = _timer.tick(_tickRate);
 
-        std::cout << "Tick duration:target : " << tickDuration.count() << ":" << 1.0 / _tickRate << "\n";
+        // Outputs tick times with a precision down to a microsecond.
+        std::cout << "Tick duration:target : " << std::fixed << std::setprecision(6) << tickDuration.count() << ":" << 1.0 / _tickRate << "\n";
 
         _tickCount++;
 

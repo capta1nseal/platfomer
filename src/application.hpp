@@ -23,7 +23,7 @@ private:
     unsigned int _tickCount;
 
     Timer _timer;
-    double _tickRate = 200.0;
+    double _tickRate;
 
 };
 
