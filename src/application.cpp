@@ -9,9 +9,9 @@
 
 Application::Application()
 {
-    _running = false;
-    _tickCount = 0;
-    _tickRate = 200.0;
+    running_ = false;
+    tickCount_ = 0;
+    tickRate_ = 200.0;
 }
 Application::~Application()
 {
@@ -19,16 +19,16 @@ Application::~Application()
 
 void Application::run()
 {
-    _running = true;
-    while (_running)
+    running_ = true;
+    while (running_)
     {
-        DurationDouble tickDuration = _timer.tick(_tickRate);
+        DurationDouble tickDuration = timer_.tick(tickRate_);
 
         // Outputs tick times with a precision down to a microsecond.
-        std::cout << "Tick duration:target : " << std::fixed << std::setprecision(6) << tickDuration.count() << ":" << 1.0 / _tickRate << "\n";
+        std::cout << "Tick duration:target : " << std::fixed << std::setprecision(6) << tickDuration.count() << ":" << 1.0 / tickRate_ << "\n";
 
-        _tickCount++;
+        tickCount_++;
 
-        if (_tickCount >= 1000) _running = false;
+        if (tickCount_ >= 1000) running_ = false;
     }
 }

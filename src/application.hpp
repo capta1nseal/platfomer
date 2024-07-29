@@ -18,12 +18,12 @@ public:
     void run();
 
 private:
-    bool _running;
+    bool running_;
 
-    unsigned int _tickCount;
+    unsigned int tickCount_;
 
-    Timer _timer;
-    double _tickRate;
+    Timer timer_;
+    double tickRate_;
 
 };
 
