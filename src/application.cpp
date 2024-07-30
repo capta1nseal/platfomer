@@ -23,14 +23,13 @@ void Application::run()
     while (running_)
     {
         DurationDouble tickDuration = timer_.tick(tickRate_);
-
-        // Outputs tick times with a precision down to a microsecond.
         
 
         if (debugging_ != 0u)
         {
             if (tickCount_ % debugging_ == 0)
             {
+                // Output tick times with a precision down to a microsecond.
                 std::cout << "Tick " << tickCount_ << "'s duration:target : " << std::fixed << std::setprecision(6) << tickDuration.count() << ":" << 1.0 / tickRate_ << "\n";
             }
         }
