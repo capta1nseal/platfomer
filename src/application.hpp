@@ -24,6 +24,9 @@ private:
 
     Timer timer_;
     double tickRate_;
+    // 0 for debugging disabled, otherwise number of ticks between debugging outputs.
+    // Can be removed for release, but the biggest performance impact comes from printing to terminal.
+    const unsigned int debugging_ = 100u;
 
 };
 

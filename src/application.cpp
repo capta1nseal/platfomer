@@ -25,10 +25,18 @@ void Application::run()
         DurationDouble tickDuration = timer_.tick(tickRate_);
 
         // Outputs tick times with a precision down to a microsecond.
-        std::cout << "Tick duration:target : " << std::fixed << std::setprecision(6) << tickDuration.count() << ":" << 1.0 / tickRate_ << "\n";
+        
+
+        if (debugging_ != 0u)
+        {
+            if (tickCount_ % debugging_ == 0)
+            {
+                std::cout << "Tick " << tickCount_ << "'s duration:target : " << std::fixed << std::setprecision(6) << tickDuration.count() << ":" << 1.0 / tickRate_ << "\n";
+            }
+        }
 
         tickCount_++;
 
-        if (tickCount_ >= 1000) running_ = false;
+        if (tickCount_ > 10000) running_ = false;
     }
 }
