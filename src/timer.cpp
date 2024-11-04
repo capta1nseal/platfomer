@@ -18,7 +18,7 @@ Timer::~Timer()
 {
 }
 
-std::chrono::duration<double> Timer::tick(double tickRate)
+DurationDouble Timer::tick(double tickRate)
 {
     TimePointDouble lastTick = lastTick_;
     lastTick_ = clock_.now();

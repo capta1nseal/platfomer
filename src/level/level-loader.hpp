@@ -3,7 +3,9 @@
 
 
 /*
-Component to load a level from disk.
+Level loader class.
+Loads levels from files.
+Level files are json.
 */
 class LevelLoader
 {

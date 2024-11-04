@@ -5,7 +5,7 @@
 /*
 Level wrapper class.
 Holds all level data during runtime.
-Should be constructed by a LevelLoader, preferably also when debugging.
+Should be constructed by a LevelLoader.
 */
 class Level
 {

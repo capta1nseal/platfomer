@@ -13,9 +13,9 @@ using TimePointDouble = std::chrono::time_point<SteadyClock, DurationDouble>;
 
 
 /*
-A class encapsulating timing code for loops.
-It aims to deliver stable and precise tick times and delta times.
-Some tuning is done to correct this_thread::sleep inaccuracy.
+Timer class.
+It aims to deliver stable and precise tick times.
+Some tuning is done to correct inaccuracy around using standard library sleep functions.
 Timing will be done in double precision, I see no need to use only float here.
 */
 class Timer
